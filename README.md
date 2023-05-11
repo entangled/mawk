@@ -20,7 +20,7 @@ A μ-awk routine is a set of methods that are triggered on regexes. The routine 
 Suppose we want to create an outline from a Markdown document, we may filter on lines starting with a `#` character.
 You then write a class that derives from `mawk.RuleSet` and decorate its methods with `mawk.on_match`.
 
-``` {.python file=test/test_markdown_outliner.py}
+```python
 from dataclasses import dataclass
 import mawk
 import re

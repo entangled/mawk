@@ -1,5 +1,5 @@
-# ~\~ language=Python filename=test/test_markdown_outliner.py
-# ~\~ begin <<README.md|test/test_markdown_outliner.py>>[init]
+# ~\~ language=Python filename=examples/markdown_outliner.py
+# ~\~ begin <<README.md|examples/markdown_outliner.py>>[init]
 from dataclasses import dataclass
 import mawk
 import re
