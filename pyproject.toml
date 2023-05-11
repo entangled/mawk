@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "mawk"
+version = "0.1.0"
+description = "A minimalist implementation of an Awk-like model in Python"
+authors = ["Johan Hidding <j.hidding@esciencecenter.nl>"]
+license = "Apache 2"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+
+
+[tool.poetry.group.dev.dependencies]
+pdoc = "^13.1.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
