@@ -23,6 +23,22 @@ class Outliner(mawk.RuleSet):
         return []
 
 
-if __name__ == "__main__":
+def test_outliner():
     with open("README.md", "r") as f:
-        print(Outliner().run(f.read()))
+        result = Outliner().run(f.read())
+
+    assert (
+        result
+        == """# μ-awk
+## Install
+## Tutorial
+## License"""
+    )
+
+
+def test_eof():
+    class TestEof(mawk.RuleSet):
+        def on_eof(self):
+            return ["hello"]
+
+    assert TestEof().run("") == "hello"
