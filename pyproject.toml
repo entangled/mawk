@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "mawk"
-version = "0.1.1"
+version = "0.1.2"
 description = "A minimalist implementation of an Awk-like model in Python"
 authors = ["Johan Hidding <j.hidding@esciencecenter.nl>"]
 license = "Apache 2"
