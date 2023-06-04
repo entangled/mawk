@@ -73,7 +73,7 @@ def always(f):
 Rule = Callable[[str], list[str]]
 
 
-def run(rules: list[Rule], inp: str, exclusive=True, on_eof=None) -> str:
+def run(rules: list[Rule], inp: str, exclusive=True, on_begin=None, on_eof=None) -> str:
     """Takes a list of rules, being function from `str` to `list[str]`.
     The input string is split into lines, after which each line is fed
     through the list of rules. All the results are colected into a list
@@ -81,6 +81,10 @@ def run(rules: list[Rule], inp: str, exclusive=True, on_eof=None) -> str:
     """
     lines = inp.splitlines()
     result = []
+
+    if on_begin:
+        result.extend(on_begin())
+
     for l in lines:
         for r in rules:
             v = r(l)
@@ -106,10 +110,14 @@ class RuleSet:
         rules = [m for m in members if hasattr(m, "_is_rule")]
         return sorted(rules, key=lambda r: r._is_rule)
 
+    def on_begin(self):
+        """This method gets called at the start of a scan."""
+        return []
+
     def on_eof(self):
         """This method gets called at the end of a scan."""
         return []
 
     def run(self, inp: str, exclusive=True) -> str:
         """Runs all rules in the class on input."""
-        return run(self.list_rules(), inp, exclusive, on_eof=self.on_eof)
+        return run(self.list_rules(), inp, exclusive, on_begin=self.on_begin, on_eof=self.on_eof)

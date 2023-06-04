@@ -36,9 +36,11 @@ def test_outliner():
     )
 
 
-def test_eof():
+def test_begin_and_eof():
     class TestEof(mawk.RuleSet):
-        def on_eof(self):
+        def on_begin(self):
             return ["hello"]
+        def on_eof(self):
+            return ["goodbye"]
 
-    assert TestEof().run("") == "hello"
+    assert TestEof().run("") == "hello\ngoodbye"
