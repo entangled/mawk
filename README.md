@@ -4,10 +4,10 @@ This is a tiny Python implementation of a line processor with Awk-like semantics
 This package is too small by any margin to qualify for the status of "package", but I keep finding myself copy-pasting this code,making small improvements every time otherwise.
 
 ## Install
-It is considered best practice to use a virtual environment. I recommend using [`poetry`](https://python-poetry.org/). If you do use Poetry, you can add it to your project by running:
+It is considered best practice to use a virtual environment. I recommend using [`uv`](https://docs.astral.sh/uv/). If you do use UV, you can add it to your project by running:
 
 ```
-poetry add mawk
+uv add mawk
 ```
 
 Otherwise, using `pip`:
