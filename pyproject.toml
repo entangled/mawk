@@ -1,6 +1,6 @@
 [project]
 name = "mawk"
-version = "0.1.6"
+version = "0.1.7"
 description = "A minimalist implementation of an Awk-like model in Python"
 authors = [{ name = "Johan Hidding", email = "j.hidding@esciencecenter.nl" }]
 requires-python = ">=3.12,<4"
