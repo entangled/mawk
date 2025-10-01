@@ -16,12 +16,16 @@ type VoidRule = Callable[[], list[str] | None]
 
 type RuleMethod[T, S] = Callable[[T, S], list[str] | None]
 
+_rule_creation_counter: int = 0
+
+
 class MethodRule[T]:
-    _rule_creation_counter: int = 0
+    # _rule_creation_counter: int = 0
 
     def __init__(self, rule: RuleMethod[T, str]):
-        self.order: int = self._rule_creation_counter
-        self._rule_creation_counter += 1
+        global _rule_creation_counter
+        self.order: int = _rule_creation_counter
+        _rule_creation_counter += 1
         self.rule: RuleMethod[T, str] = rule
         self.__doc__ = rule.__doc__
 
